@@ -111,14 +111,14 @@ template<typename T, typename U> void debug_map(const map<T, U>& m) {
 /***********************************************************/
 
 int solve() {
-  
-  return 0;
+    
+    return 0;
 }
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  solve();
-  return 0;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
 }
 
