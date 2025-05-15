@@ -1,9 +1,12 @@
 #include <iostream>
+#include <string>
+#include <cmath>
 #include <vector>
 #include <tuple>
 #include <set>
 #include <stack>
-#include <string>
+#include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 using ll = long long;
@@ -17,6 +20,8 @@ using vvl = vector<vl>;
 using vpii = vector<pii>;
 using vpll = vector<pll>;
 using ui = uint64_t;
+using umii = unordered_map<int, int>;
+using usi = unordered_set<int>;
 
 /* for input */
 #define iin(...) auto [__VA_ARGS__]=[](){int __VA_ARGS__;(cin>>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
@@ -40,6 +45,12 @@ using ui = uint64_t;
 #define eb emplace_back
 #define len(x) ((int)(x).size())
 #define str string
+#define cp(a) cout << (a) << endl
+#define yes(cond) cout << ((cond) ? "Yes" : "No") << endl
+#define YES cout << "YES\n"
+#define NO cout << "NO\n"
+#define Yes cout << "Yes\n"
+#define No cout << "No\n"
 
 const int dx4[4] = {1, 0, -1, 0};
 const int dy4[4] = {0, 1, 0, -1};
@@ -88,7 +99,7 @@ template<typename T, typename U> void debug_map(const map<T, U>& m) {
 /****************************************************************/
 
 int solve() {
-    
+
     return 0;
 }
 
