@@ -1,3 +1,5 @@
+/*** https://github.com/Linilys/  *************************/
+/************  include librarys  *************************************************************/
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,6 +26,7 @@
 // #include <regex>    // 正規表現
 // #include <bitset>
 // #include <complex>
+
 using namespace std;
 using ll = long long;
 using vi = vector<int>;
@@ -39,25 +42,8 @@ using ui = uint64_t;
 using umii = unordered_map<int, int>;
 using usi = unordered_set<int>;
 
-/* for input */
-#define l1(var) ll var; cin >> var
-#define l2(a,b) ll a,b; cin >> a >> b
-#define l3(a,b,c) ll a,b,c; cin >> a >> b >> c
-#define l4(a,b,c,d) ll a,b,c,d; cin >> a >> b >> c >> d
-#define l5(a,b,c,d,e) ll a,b,c,d,e; cin >> a >> b >> c >> d >> e
-#define s1(var) string var; cin >> var
-#define s2(a,b) string a,b; cin >> a >> b
-#define s3(a,b,c) string a,b,c; cin >> a >> b >> c
-#define s4(a,b,c,d) string a,b,c,d; cin >> a >> b >> c >> d
-#define s5(a,b,c,d,e) string a,b,c,d,e; cin >> a >> b >> c >> d >> e
-#define lary(a, x) vector<long long> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
-#define iary(a, x) vector<int> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
-#define sary(a, x) vector<string> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
-#define l2ary(a, r, c) vector<vector<long long>> a(r, vector<long long>(c)); \
-                         for (int i = 0; i < (r); ++i) for (int j = 0; j < (c); ++j) cin >> a[i][j];
-#define i2ary(a, r, c) vector<vector<int>> a(r, vector<int>(c)); \
-                         for (int i = 0; i < (r); ++i) for (int j = 0; j < (c); ++j) cin >> a[i][j];
-/* roop */
+
+/*******************************  Macro  *********************************************************************/
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 #define rep1(n) for (int i = 0; i < (n); ++i)
 #define rep3(i, a, b) for (int i = a; i <= (b); ++i)
@@ -79,18 +65,24 @@ using usi = unordered_set<int>;
 #define NO cout << "NO\n"
 #define Yes cout << "Yes\n"
 #define No cout << "No\n"
-
-const int dx4[4] = {1, 0, -1, 0};
-const int dy4[4] = {0, 1, 0, -1};
-const int dx8[8] = {1, 1, 0, -1, -1, -1, 0, 1};
-const int dy8[8] = {0, 1, 1, 1, 0, -1, -1, -1};
-vector<int> di{1, 0, -1, 0};
-vector<int> dj{0, 1, 0, -1};
-
-const int INF = 1e9 + 5;
-const ll LINF = 1LL << 60;
-const double EPS = 1e-9;
-const int MOD = 1e9 + 7;
+/* for input */
+#define l1(var) ll var; cin >> var
+#define l2(a,b) ll a,b; cin >> a >> b
+#define l3(a,b,c) ll a,b,c; cin >> a >> b >> c
+#define l4(a,b,c,d) ll a,b,c,d; cin >> a >> b >> c >> d
+#define l5(a,b,c,d,e) ll a,b,c,d,e; cin >> a >> b >> c >> d >> e
+#define s1(var) string var; cin >> var
+#define s2(a,b) string a,b; cin >> a >> b
+#define s3(a,b,c) string a,b,c; cin >> a >> b >> c
+#define s4(a,b,c,d) string a,b,c,d; cin >> a >> b >> c >> d
+#define s5(a,b,c,d,e) string a,b,c,d,e; cin >> a >> b >> c >> d >> e
+#define lary(a, x) vector<long long> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
+#define iary(a, x) vector<int> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
+#define sary(a, x) vector<string> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
+#define l2ary(a, r, c) vector<vector<ll>> a(r, vector<ll>(c)); \
+                         for (int i=0; i<(r); ++i) for (int j=0; j<(c); ++j) cin >> a[i][j];
+#define i2ary(a, r, c) vector<vector<int>> a(r, vector<int>(c)); \
+                         for (int i=0; i<(r); ++i) for (int j=0; j<(c); ++j) cin >> a[i][j];
 
 template<class T> bool chmax(T &a, const T &b){if(a < b){a = b; return 1; } return 0;}
 template<class T> bool chmin(T &a, const T &b){if(a > b){a = b; return 1; } return 0;}
@@ -98,7 +90,8 @@ template<class T> bool chmin(T &a, const T &b){if(a > b){a = b; return 1; } retu
 // template<class T> auto min(const T& a){ return *min_element(all(a)); }
 // template<class T> auto max(const T& a){ return *max_element(all(a)); }
 
-/* Math */
+
+/*******************************  MATH  *******************************************************************************/
 inline ll gcd(ll a, ll b) {return (b == 0) ? a : gcd(b, a % b);}
 inline ll lcm(ll a, ll b) {return (a / gcd(a, b)) * b;}
 
@@ -139,7 +132,7 @@ vector<pair<ll, int>> prime_factorize(ll n) {
     return factors;
 }
 
-/* for debugs */
+/* debug(x) */
 #ifdef LOCAL
 #define debug(x) cerr << #x << ": " << (x) << endl
 #else
@@ -159,6 +152,18 @@ template<typename T, typename U> void debug_map(const map<T, U>& m) {
 }
 #define debug2d(v) for (const auto& row : (v)) debug_vector(row)
 #endif
+/***************************************************************************************************************************/
+
+const int INF = 1e9 + 5;
+const ll LINF = 1LL << 60;
+const double EPS = 1e-9;
+const int MOD = 1e9 + 7;
+const int dx4[4] = {1, 0, -1, 0};
+const int dy4[4] = {0, 1, 0, -1};
+const int dx8[8] = {1, 1, 0, -1, -1, -1, 0, 1};
+const int dy8[8] = {0, 1, 1, 1, 0, -1, -1, -1};
+vector<int> di{1, 0, -1, 0};
+vector<int> dj{0, 1, 0, -1};
 
 /****  Library  Here  *******************************************/
 
