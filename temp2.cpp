@@ -119,7 +119,7 @@ bool is_prime(int n) {
     return true;
 }
 
-vector<pair<int, int>> prime_factorize(int n) {
+vector<pair<ll, int>> prime_factorize(ll n) {
     vector<pair<int, int>> factors;
     for (int i = 2; i * i <= n; ++i) {
         if (n % i == 0) {
