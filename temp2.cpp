@@ -40,11 +40,16 @@ using umii = unordered_map<int, int>;
 using usi = unordered_set<int>;
 
 /* for input */
-#define iin(...) auto [__VA_ARGS__]=[](){int __VA_ARGS__;(cin>>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
-#define lin(...) auto [__VA_ARGS__]=[](){long long __VA_ARGS__;(cin>>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
-#define din(...) auto [__VA_ARGS__]=[](){double __VA_ARGS__;(cin>>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
-#define sin(...) auto [__VA_ARGS__]=[](){string __VA_ARGS__;(cin>>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
-#define chin(...) auto [__VA_ARGS__]=[](){char __VA_ARGS__;(cin >>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
+#define l1(var) ll var; cin >> var
+#define l2(a,b) ll a,b; cin >> a >> b
+#define l3(a,b,c) ll a,b,c; cin >> a >> b >> c
+#define l4(a,b,c,d) ll a,b,c,d; cin >> a >> b >> c >> d
+#define l5(a,b,c,d,e) ll a,b,c,d,e; cin >> a >> b >> c >> d >> e
+#define s1(var) string var; cin >> var
+#define s2(a,b) string a,b; cin >> a >> b
+#define s3(a,b,c) string a,b,c; cin >> a >> b >> c
+#define s4(a,b,c,d) string a,b,c,d; cin >> a >> b >> c >> d
+#define s5(a,b,c,d,e) string a,b,c,d,e; cin >> a >> b >> c >> d >> e
 #define lary(a, x) vector<long long> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
 #define iary(a, x) vector<int> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
 #define sary(a, x) vector<string> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
