@@ -1,12 +1,29 @@
 #include <iostream>
-#include <string>
-#include <cmath>
 #include <vector>
+#include <string>
 #include <tuple>
-#include <set>
-#include <stack>
 #include <unordered_map>
 #include <unordered_set>
+#include <utility>
+#include <algorithm>
+#include <functional>
+#include <cmath>
+#include <numeric>
+#include <limits>
+#include <iterator>
+#include <cassert>
+#include <stack>
+#include <queue>
+#include <deque>
+#include <random>
+#include <sstream>
+#include <chrono>
+#include <bitset>
+#include <complex>
+#include <stdexcept>
+#include <set>
+#include <map>
+#include <regex>    // 正規表現
 
 using namespace std;
 using ll = long long;
@@ -29,6 +46,13 @@ using usi = unordered_set<int>;
 #define din(...) auto [__VA_ARGS__]=[](){double __VA_ARGS__;(cin>>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
 #define sin(...) auto [__VA_ARGS__]=[](){string __VA_ARGS__;(cin>>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
 #define chin(...) auto [__VA_ARGS__]=[](){char __VA_ARGS__;(cin >>...>>__VA_ARGS__);return tuple{__VA_ARGS__};}()
+#define lary(a, x) vector<long long> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
+#define iary(a, x) vector<int> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
+#define sary(a, x) vector<string> a(x); for (int i = 0; i < (x); ++i) cin >> a[i];
+#define l2ary(a, r, c) vector<vector<long long>> a(r, vector<long long>(c)); \
+                         for (int i = 0; i < (r); ++i) for (int j = 0; j < (c); ++j) cin >> a[i][j];
+#define i2ary(a, r, c) vector<vector<int>> a(r, vector<int>(c)); \
+                         for (int i = 0; i < (r); ++i) for (int j = 0; j < (c); ++j) cin >> a[i][j];
 /* roop */
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 #define rep1(n) for (int i = 0; i < (n); ++i)
@@ -66,10 +90,50 @@ const int MOD = 1e9 + 7;
 
 template<class T> bool chmax(T &a, const T &b){if(a < b){a = b; return 1; } return 0;}
 template<class T> bool chmin(T &a, const T &b){if(a > b){a = b; return 1; } return 0;}
-inline ll gcd(ll a, ll b) {return (b == 0) ? a : gcd(b, a % b);}
-inline ll lcm(ll a, ll b) {return (a / gcd(a, b)) * b;}
+
 // template<class T> auto min(const T& a){ return *min_element(all(a)); }
 // template<class T> auto max(const T& a){ return *max_element(all(a)); }
+
+/* Math */
+inline ll gcd(ll a, ll b) {return (b == 0) ? a : gcd(b, a % b);}
+inline ll lcm(ll a, ll b) {return (a / gcd(a, b)) * b;}
+
+ll mod_pow(ll base, ll exp, ll mod) {
+    base = (base % mod + mod) % mod;
+    ll result = 1;
+    while (exp > 0) {
+        if (exp % 2 == 1) result = result * base % mod;
+        base = base * base % mod;
+        exp /= 2;
+    }
+    return result;
+}
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
+    }
+    return true;
+}
+
+vector<pair<int, int>> prime_factorize(int n) {
+    vector<pair<int, int>> factors;
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) {
+            int count = 0;
+            while (n % i == 0) {
+                n /= i;
+                ++count;
+            }
+            factors.emplace_back(i, count);
+        }
+    }
+    if (n > 1) factors.emplace_back(n, 1);
+    return factors;
+}
 
 /* for debugs */
 #ifdef LOCAL
@@ -97,6 +161,7 @@ template<typename T, typename U> void debug_map(const map<T, U>& m) {
 
 
 /****************************************************************/
+
 
 int solve() {
 
