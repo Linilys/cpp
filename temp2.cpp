@@ -1,5 +1,4 @@
-/*** https://github.com/Linilys/  *************************/
-/************  include librarys  *************************************************************/
+#pragma region
 #include <iostream>
 #include <vector>
 #include <string>
@@ -42,22 +41,20 @@ using ui = uint64_t;
 using umii = unordered_map<int, int>;
 using usi = unordered_set<int>;
 
-
-/*******************************  Macro  *********************************************************************/
+/*******  Macros  *************************************************/
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 #define rep1(n) for (int i = 0; i < (n); ++i)
 #define rep3(i, a, b) for (int i = a; i <= (b); ++i)
 #define rrep(i,n) for(int i = (n)-1; i >= 0; i--)
 #define rrep1(n) for(int i = (n)-1; i >= 0; i--)
 #define rrep3(i,a,b) for(int i = (b)-1; i >= (a); i--)
-/* macro */
+
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
 #define ssort(v) sort(all(v))
 #define lsort(v) sort(all(v), greater<>())
 #define pb push_back
 #define eb emplace_back
-#define len(x) ((int)(x).size())
 #define str string
 #define cp(a) cout << (a) << endl
 #define yes(cond) cout << ((cond) ? "Yes" : "No") << endl
@@ -65,7 +62,8 @@ using usi = unordered_set<int>;
 #define NO cout << "NO\n"
 #define Yes cout << "Yes\n"
 #define No cout << "No\n"
-/* for input */
+
+/*******  Input  *************************************************/
 #define l1(var) ll var; cin >> var
 #define l2(a,b) ll a,b; cin >> a >> b
 #define l3(a,b,c) ll a,b,c; cin >> a >> b >> c
@@ -91,7 +89,9 @@ template<class T> bool chmin(T &a, const T &b){if(a > b){a = b; return 1; } retu
 // template<class T> auto max(const T& a){ return *max_element(all(a)); }
 
 
-/*******************************  MATH  *******************************************************************************/
+/*******  Math  *************************************************/
+#define manhattan(x1, x2, y1, y2) (abs(x1 - x2) + abs(y1 - y2))
+
 inline ll gcd(ll a, ll b) {return (b == 0) ? a : gcd(b, a % b);}
 inline ll lcm(ll a, ll b) {return (a / gcd(a, b)) * b;}
 
@@ -132,7 +132,67 @@ vector<pair<ll, int>> prime_factorize(ll n) {
     return factors;
 }
 
-/* debug(x) */
+/*******  i128  *************************************************/
+using i128 = _int128;
+constexpr i128 to_integer(const string&s) {
+    i128 = 0;
+    for (auto c:s) {
+        if (isdigit(c)) res=res * 10 + ( c - '0');
+    }
+    if (s[0] == '-') res*= -1;
+    return res;
+}
+istream& operator >> (istream &is, i128 &x) {
+    string s;
+    is >> s;
+    x = to_integer(s);
+    return is;
+}
+ostream& operator << (ostream &os, const i128 &x) {
+    int 128 ax = (x >= 0 ? x : -x);
+    char buffer[128];
+    char *d = end(buffer);
+    do {
+        --d;
+        *d = "0123456789"[ax % 10];
+        ax /= 10;
+    } while (ax != 0);
+    if( x < = 0) {
+        --d;
+        *d = '-';
+    }
+    int len = end(buffer) - d;
+    if (os.rdbuf() -> sputn(d, len) != len) {
+        os.setstate(ios_base::badbint);
+    }
+    return os;
+}
+/*******  Others  *************************************************/
+template <typename T>
+inline vector<T> ruisekiwa(const vector<T>& a)
+{
+  vector<T> rui(a.size() + 1);
+  rui[0] = 0;
+  for (int i = 0; i < a.size(); ++i)
+  {
+    rui[i + 1] = rui[i] + a[i];
+  }
+  return rui;
+}
+template <typename T>
+inline vector<vector<T>> ruisekiwa(const vector<vector<T>>& a)
+{
+  vector<vector<T>> rui(a.size() + 1, vector<T>(a[0].size() + 1, 0));
+  for (int i = 0; i < a.size(); ++i)
+    for (int j = 0; j < a[0].size(); ++j)
+      rui[i + 1][j + 1] = rui[i + 1][j] + a[i][j];
+  for (int i = 0; i < a[0].size(); ++i)
+    for (int j = 0; j < a.size(); ++j)
+      rui[j + 1][i + 1] += rui[j][i + 1];
+  return rui;
+}
+
+/*******  Debug  *************************************************/
 #ifdef LOCAL
 #define debug(x) cerr << #x << ": " << (x) << endl
 #else
@@ -152,7 +212,7 @@ template<typename T, typename U> void debug_map(const map<T, U>& m) {
 }
 #define debug2d(v) for (const auto& row : (v)) debug_vector(row)
 #endif
-/***************************************************************************************************************************/
+#pragma endregion
 
 const int INF = 1e9 + 5;
 const ll LINF = 1LL << 60;
@@ -165,12 +225,12 @@ const int dy8[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 vector<int> di{1, 0, -1, 0};
 vector<int> dj{0, 1, 0, -1};
 
-/****  Library  Here  *******************************************/
+
+/*******  Library  Here  *************************************************/
 
 
 
-/****************************************************************/
-
+/*************************************************************************/
 
 int solve() {
 
