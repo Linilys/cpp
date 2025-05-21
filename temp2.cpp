@@ -1,4 +1,5 @@
 #pragma region
+// {
 #include <iostream>
 #include <vector>
 #include <string>
@@ -212,6 +213,7 @@ template<typename T, typename U> void debug_map(const map<T, U>& m) {
 }
 #define debug2d(v) for (const auto& row : (v)) debug_vector(row)
 #endif
+// }
 #pragma endregion
 
 const int INF = 1e9 + 5;
